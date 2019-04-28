@@ -171,6 +171,8 @@ public class MainActivity extends Activity {
 
         }
         try {
+
+            //hello
             if (otvet == Double.POSITIVE_INFINITY ||
                     otvet == Double.NEGATIVE_INFINITY)
                 throw new ArithmeticException();
