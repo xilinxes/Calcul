@@ -40,6 +40,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 screen.setTextColor(Color.rgb(0, 0, 0));
+                if ((String.valueOf(screen.getText())).equals("Error"))
+                    screen.setText("");
+
                 switch (v.getId()) {
                     case R.id.C:
                         screen.setText("");
@@ -97,13 +100,17 @@ public class MainActivity extends Activity {
                     case R.id.point:
                         screen.append(".");
                         break;
+
                     case R.id.ravno:
                         screen.append("/");
                         vichislenia();
                         break;
+
                 }
             }
         };
+
+
         c.setOnClickListener(onclk);
         ymnoj.setOnClickListener(onclk);
         delete.setOnClickListener(onclk);
@@ -159,6 +166,7 @@ public class MainActivity extends Activity {
                     case '-':
                         otvet -= a;
                         break;
+
 
                 }
 
