@@ -1,6 +1,8 @@
 package im.ringl.screen;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
     TextView screen;
-    Button c, delit, ymnoj, delete, nine, eight, seven, six, five, forth, three, two, one, ravno;
+    Button c, delit, ymnoj, delete, nine, eight, seven, six, five, forth, three, two, one, ravno, plus, minus, zero, point;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -29,10 +31,15 @@ public class MainActivity extends Activity {
         two = (Button) findViewById(R.id.two);
         one = (Button) findViewById(R.id.one);
         ravno = (Button) findViewById(R.id.ravno);
+        plus = (Button) findViewById(R.id.plus);
+        minus = (Button) findViewById(R.id.minus);
+        zero = (Button) findViewById(R.id.zero);
+        point = (Button) findViewById(R.id.point);
 
         View.OnClickListener onclk = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                screen.setTextColor(Color.rgb(0, 0, 0));
                 switch (v.getId()) {
                     case R.id.C:
                         screen.setText("");
@@ -78,10 +85,22 @@ public class MainActivity extends Activity {
                     case R.id.one:
                         screen.append("1");
                         break;
+                    case R.id.plus:
+                        screen.append("+");
+                        break;
+                    case R.id.minus:
+                        screen.append("-");
+                        break;
+                    case R.id.zero:
+                        screen.append("0");
+                        break;
+                    case R.id.point:
+                        screen.append(".");
+                        break;
                     case R.id.ravno:
+                        screen.append("/");
                         vichislenia();
-
-
+                        break;
                 }
             }
         };
@@ -99,38 +118,67 @@ public class MainActivity extends Activity {
         two.setOnClickListener(onclk);
         one.setOnClickListener(onclk);
         ravno.setOnClickListener(onclk);
+        plus.setOnClickListener(onclk);
+        minus.setOnClickListener(onclk);
+        zero.setOnClickListener(onclk);
+        point.setOnClickListener(onclk);
 
     }
 
     public void vichislenia() {
+        char znak = ' ';
         double otvet = 0;
         int index = 0;
         String text;
         text = String.valueOf(screen.getText());
         for (int j = 0; j < text.length(); j++) {
-            if (text.charAt(j) == '/' || text.charAt(j) == '*') {
-                char znak = text.charAt(j);
-                otvet = Double.parseDouble(text.substring(index, j - 1));
+            if (text.charAt(j) == '/' || text.charAt(j) == '*' || text.charAt(j) == '+' || (text.charAt(j) == '-' && j > 0)) {
+                znak = text.charAt(j);
+                String str;
+                str = text.substring(index, j);
+                otvet = Double.parseDouble(str);
                 index = j + 1;
+                break;
             }
         }
         for (int i = index; i < text.length(); i++) {
-            if (text.charAt(i) == '/' || text.charAt(i) == '*') {
-                char znak = text.charAt(i);
-                double a = Double.parseDouble(text.substring(index, i - 1));
-                index = i + 1;
-
+            if (text.charAt(i) == '/' || text.charAt(i) == '*' || text.charAt(i) == '+' || text.charAt(i) == '-') {
+                String str;
+                str = text.substring(index, i);
+                double a = Double.parseDouble(str);
                 switch (znak) {
                     case '/':
-                        otvet = otvet / a;
+                        otvet /= a;
+                        break;
+                    case '*':
+                        otvet = otvet * a;
+                        break;
+                    case '+':
+                        otvet += a;
+                        break;
+                    case '-':
+                        otvet -= a;
                         break;
 
                 }
+
+                znak = text.charAt(i);
+                index = i + 1;
+
+
             }
 
 
         }
-        screen.setText((int) otvet);
+        try {
+            if (otvet == Double.POSITIVE_INFINITY ||
+                    otvet == Double.NEGATIVE_INFINITY)
+                throw new ArithmeticException();
+            screen.setText(String.valueOf(otvet));
+        } catch (ArithmeticException e) {
+            screen.setTextColor(Color.rgb(255, 30, 30));
+            screen.setText("Error");
+        }
     }
 }
 
