@@ -172,7 +172,7 @@ public class MainActivity extends Activity {
         }
         try {
 
-            //test ehlo
+            //hello
             if (otvet == Double.POSITIVE_INFINITY ||
                     otvet == Double.NEGATIVE_INFINITY)
                 throw new ArithmeticException();
