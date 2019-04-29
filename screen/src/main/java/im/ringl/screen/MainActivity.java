@@ -1,19 +1,18 @@
 package im.ringl.screen;
 
 import android.app.Activity;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
     TextView screen;
     Button c, delit, ymnoj, delete, nine, eight, seven, six, five, forth, three, two, one, ravno, plus, minus, zero, point;
-
+    Switch sw;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -40,6 +39,8 @@ public class MainActivity extends Activity {
         minus = (Button) findViewById(R.id.minus);
         zero = (Button) findViewById(R.id.zero);
         point = (Button) findViewById(R.id.point);
+        sw=(Switch) findViewById(R.id.switch1);
+
 
         View.OnClickListener onclk = new View.OnClickListener() {
             @Override
@@ -114,9 +115,9 @@ public class MainActivity extends Activity {
                         } catch (Exception e) {
                             Log.d("ERR", "error");
                             screen.setText((String.valueOf(screen.getText()).substring(0, screen.getText().length() - 1)));
-                            screen.setTextColor(Color.rgb(255,0,0));
+                            screen.setTextColor(Color.rgb(255, 0, 0));
                             screen.append("\nError");
-                            
+
                         }
 
                 }
