@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="кальякулятор "
+        android:text="калькулятор "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,14 +28,16 @@
         app:layout_constraintStart_toStartOf="@+id/Vvod"
         app:layout_constraintTop_toBottomOf="@+id/Vvod" />
 
-    <TextView
+    <EditText
         android:id="@+id/Vvod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
-        android:text="TextView"
+        android:ems="10"
+        android:hint="Из"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -48,7 +50,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:ems="10"
+        android:hint="В"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -64,5 +68,6 @@
         app:layout_constraintEnd_toEndOf="@+id/Vivod"
         app:layout_constraintStart_toStartOf="@+id/Vivod"
         app:layout_constraintTop_toBottomOf="@+id/Vivod" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class laba2 extends AppCompatActivity {
     String[] data = {"миллиметр", "сантиметр", "метр", "километр", "фут","ярд","миля"};
     String[] data2 = {"миллиметр", "сантиметр", "метр", "километр", "фут","ярд","миля"};
+    Double[] velichini ={1.0,10.0,1000.0,1000000.0,304.8,914.4,1609344.0};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class laba2 extends AppCompatActivity {
         Spinner spin2 = (Spinner) findViewById(R.id.spinner2);
         spin2.setAdapter(adapter2);
         spin2.setPrompt("Перевести в");
+        spin2.setSelection(6);
         spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

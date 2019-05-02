@@ -58,12 +58,9 @@ public class MainActivity extends Activity {
                 switch (v.getId()) {
                     case R.id.switch1:{
                         if(sw.isChecked()){
-                            sw.setText("Включён перевод длин ");
                             Intent lab2 = new Intent(getApplicationContext(), laba2.class);
                             startActivity(lab2);
                         }
-                        else
-                            sw.setText("калькулятор ");
                         break;
                     }
                     case R.id.C:
