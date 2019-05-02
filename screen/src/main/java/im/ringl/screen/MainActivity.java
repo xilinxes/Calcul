@@ -17,7 +17,6 @@ public class MainActivity extends Activity {
     Switch sw;
 
 
-
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
@@ -43,8 +42,7 @@ public class MainActivity extends Activity {
         minus = (Button) findViewById(R.id.minus);
         zero = (Button) findViewById(R.id.zero);
         point = (Button) findViewById(R.id.point);
-        sw=(Switch) findViewById(R.id.switch1);
-
+        sw = (Switch) findViewById(R.id.switch1);
 
 
         View.OnClickListener onclk = new View.OnClickListener() {
@@ -56,10 +54,11 @@ public class MainActivity extends Activity {
 
 
                 switch (v.getId()) {
-                    case R.id.switch1:{
-                        if(sw.isChecked()){
+                    case R.id.switch1: {
+                        if (sw.isChecked()) {
                             Intent lab2 = new Intent(getApplicationContext(), laba2.class);
                             startActivity(lab2);
+
                         }
                         break;
                     }
