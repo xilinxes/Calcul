@@ -1,6 +1,7 @@
 package im.ringl.screen;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ public class MainActivity extends Activity {
     TextView screen;
     Button c, delit, ymnoj, delete, nine, eight, seven, six, five, forth, three, two, one, ravno, plus, minus, zero, point;
     Switch sw;
-    Intent lab2 = new Intent(this, laba2.class);
+
 
 
     @Override
@@ -57,11 +58,12 @@ public class MainActivity extends Activity {
                 switch (v.getId()) {
                     case R.id.switch1:{
                         if(sw.isChecked()){
-                            sw.setText("Включён перевод длинн");
+                            sw.setText("Включён перевод длин ");
+                            Intent lab2 = new Intent(getApplicationContext(), laba2.class);
                             startActivity(lab2);
                         }
                         else
-                            sw.setText("Включён калькулятор");
+                            sw.setText("калькулятор ");
                         break;
                     }
                     case R.id.C:

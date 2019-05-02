@@ -229,9 +229,9 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="тык"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="калькулятор "
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/screen"
         app:layout_constraintTop_toTopOf="@+id/screen" />
