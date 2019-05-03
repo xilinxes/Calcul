@@ -21,7 +21,7 @@ public class laba2 extends Activity implements View.OnTouchListener {
     EditText number;
     TextView otvet;
     Switch sw2;
-    int firstPos, secondPos;
+    int firstPos=0, secondPos=6;
     String[] data = {"миллиметр", "сантиметр", "метр", "километр", "фут", "ярд", "миля"};
     String[] data2 = {"миллиметр", "сантиметр", "метр", "километр", "фут", "ярд", "миля"};
     Double[] velichini = {1.0, 10.0, 1000.0, 1000000.0, 304.8, 914.4, 1609344.0};
@@ -35,6 +35,7 @@ public class laba2 extends Activity implements View.OnTouchListener {
         sw2 = (Switch) findViewById(R.id.switch2);
         otvet = (TextView) findViewById(R.id.Vivod);
         otvet.setOnTouchListener(this);
+
         View.OnClickListener lab2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +71,7 @@ public class laba2 extends Activity implements View.OnTouchListener {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), data[position], Toast.LENGTH_SHORT).show();
                 firstPos = position;
+                schet();
             }
 
             @Override
@@ -82,6 +84,7 @@ public class laba2 extends Activity implements View.OnTouchListener {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), data[position], Toast.LENGTH_SHORT).show();
                 secondPos = position;
+                schet();
             }
 
             @Override
@@ -96,18 +99,20 @@ public class laba2 extends Activity implements View.OnTouchListener {
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP: {
-                try {
-                    double result = Double.parseDouble(String.valueOf(number.getText()));
-                    result = result * velichini[firstPos] / velichini[secondPos];
-                    otvet.setText(String.valueOf(result));
-                } catch (Exception e) {
-
-                }
+                schet();
             }
         }
-
-
         return true;
+    }
+
+    public void schet() {
+        try {
+            double result = Double.parseDouble(String.valueOf(number.getText()));
+            result = result * velichini[firstPos] / velichini[secondPos];
+            otvet.setText(String.valueOf(result));
+        } catch (Exception e) {
+
+        }
     }
 }
 
