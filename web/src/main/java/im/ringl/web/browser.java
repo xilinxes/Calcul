@@ -47,7 +47,7 @@ public class browser extends AppCompatActivity {
                         try {
                             list.add(webView.getUrl());
                             webView.loadUrl(listforward.get(listforward.size() - 1));
-                            listforward.remove(list.size() - 1);
+                            listforward.remove(listforward.size() - 1);
                             break;
                         }
                         catch (Exception e){
@@ -55,8 +55,13 @@ public class browser extends AppCompatActivity {
                         }
                     }
                     case R.id.restart:{
-                        webView.loadUrl(list.get(list.size()));
-                        break;
+                        try {
+                            webView.loadUrl(webView.getUrl());
+                            break;
+                        }
+                        catch (Exception e){
+
+                        }
                     }
                 }
             }
