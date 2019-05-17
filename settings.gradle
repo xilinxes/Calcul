@@ -1,1 +1,1 @@
-include ':app', ':screen', ':web', ':widget'
+include ':app', ':screen', ':web', ':widget', ':notiff'
